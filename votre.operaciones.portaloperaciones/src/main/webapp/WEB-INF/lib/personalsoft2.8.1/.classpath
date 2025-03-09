@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="lib" path="C:/Archivos de programa/Apache Software Foundation/apache-tomcat-5.5.27/common/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="lib/ajaxtags-1.3-beta-rc7.jar"/>
+	<classpathentry kind="lib" path="lib/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-api-1.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/itext-1.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/jasperreports-2.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/jbosscache-core.jar"/>
+	<classpathentry kind="lib" path="lib/jboss-common-core.jar"/>
+	<classpathentry kind="lib" path="lib/jcip-annotations.jar"/>
+	<classpathentry kind="lib" path="lib/jdom.jar"/>
+	<classpathentry kind="lib" path="lib/jgroups.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.11.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.0.6-bin.jar"/>
+	<classpathentry kind="lib" path="lib/pager-src.jar"/>
+	<classpathentry kind="lib" path="lib/pager-taglib.jar"/>
+	<classpathentry kind="lib" path="lib/standard.jar"/>
+	<classpathentry kind="lib" path="lib/axis.jar"/>
+	<classpathentry kind="lib" path="lib/axis-ant.jar"/>
+	<classpathentry kind="lib" path="lib/wsdl4j-1.5.1.jar"/>
+	<classpathentry kind="lib" path="lib/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="lib/saaj.jar"/>
+	<classpathentry kind="lib" path="lib/xercesImpl-1.5.jar"/>
+	<classpathentry kind="lib" path="lib/mailapi.jar"/>
+	<classpathentry kind="lib" path="lib/ftp.jar"/>
+	<classpathentry kind="lib" path="lib/activation.jar"/>
+	<classpathentry kind="lib" path="lib/smtp.jar"/>
+	<classpathentry kind="lib" path="lib/jsse.jar"/>
+	<classpathentry kind="lib" path="lib/commons-validator-1.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/concurrent-1.3.4.jar"/>
+	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/jta.jar"/>
+	<classpathentry kind="lib" path="C:/Archivos de programa/Apache Software Foundation/apache-tomcat-5.5.27/common/lib/servlet-api.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.5.0_10"/>
+	<classpathentry kind="lib" path="lib/jboss-logging-spi.jar"/>
+	<classpathentry kind="lib" path="lib/jboss-transaction-api.jar"/>
+	<classpathentry kind="lib" path="lib/jcache.jar"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
