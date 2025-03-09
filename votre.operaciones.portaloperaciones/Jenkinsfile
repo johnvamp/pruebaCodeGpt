@@ -1,0 +1,212 @@
+@Library('leonisa-shared-libraries') _
+pipeline {
+    environment {
+        SCANNER_HOME = tool 'sonarScanner'
+        NOMBRE_PROYECTO = "${JOB_NAME}"
+        WAS_SOAP_TEST = credentials('was-soap-test')
+        WAS_SSH_TEST = credentials('was-ssh-test')
+        WAS_SOAP_PDN = credentials('was-soap-pdn')
+        WAS_SSH_PDN = credentials('was-ssh-pdn')
+        GCHAT_NOTIFICATION_URL = credentials('gchatnotification-infra-url')
+        DEPENDENCYTRACK_APIKEY = credentials('dependency-track-apikey')
+        NOMBRE_APLICACION = "PortalOperaciones"
+        BUILD_USER = buildUser()
+    }
+    options {
+        disableConcurrentBuilds()
+    }
+    agent {
+        kubernetes {
+            defaultContainer 'maven'
+            idleMinutes 1
+            yaml configKubernetesAgent(
+                'principalContainerName': 'maven',
+                'principalcontainerImage': 'maven/3.5.2-jdk-8'
+            )
+
+        }      
+    }
+
+    stages {
+        stage('Compile') {
+            steps{
+                script{
+                    googlechatnotification message: "Inicia proceso CI/CD: ${currentBuild.fullDisplayName} \\nUrl:<${env.BUILD_URL}|link> Ejecutado por: ${env.BUILD_USER}", url: GCHAT_NOTIFICATION_URL
+                }
+                sh 'mvn clean install'
+            }
+        }
+        
+        stage("Tests"){
+            steps{
+                script {
+                    echo "====++++executing Test++++===="
+                    container("sonar-scanner"){
+                        withSonarQubeEnv(installationName:'sonar', credentialsId: 'token-sonarqube') {
+                            env.NOMBRE_PROYECTO_SONAR = 'Votre.Operaciones.PortalOperaciones'
+                            print env.NOMBRE_PROYECTO_SONAR
+                            sh '''$SCANNER_HOME/bin/sonar-scanner \
+                            -Dsonar.java.binaries=target/classes \
+                            -Dsonar.sources=src/main/java \
+                            -Dsonar.projectKey=$NOMBRE_PROYECTO_SONAR \
+                            -Dsonar.projectVersion=$BUILD_NUMBER \
+                            -Dsonar.branch.name=${BRANCH_NAME} \
+                            -Dsonar.java.libraries.empty=true \
+                            -Dsonar.exclusions='**/*DTO.*'
+                            '''
+                        }
+                    }
+                }
+            }
+            
+        }
+        
+        stage("Quality Gate") {
+            steps {
+                echo "====++++executing Quality++++===="
+                script {
+                    timeout(time: 1, unit: 'HOURS') { // Just in case something goes wrong, pipeline will be killed after a timeout
+                        def qualitygate = waitForQualityGate()
+                        echo "estado sonar " + qualitygate.status
+                        if (qualitygate.status == "OK" || qualitygate.status == "WARN") {
+                            echo "Termina la calidad de código exitosamente"
+                        }
+                        else {
+                            error "Pipeline abordado fallo el estandar de calidad: ${qualitygate.status}"
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Security checks') {
+            parallel {
+                stage("Dependencies") {
+                    steps {
+                        script {
+                            container('dependency-check') {
+                                checkDependency(
+                                    branchsToAbort: 'none',
+                                    vulnerabilitiesMin: '0'
+                                )
+                            }
+                        }
+                    }
+                }
+
+                stage("Gitleaks") {
+                    steps {
+                        script {
+                            container('gitleaks') {
+                                checkGitLeaks(
+                                    branchsToAbort: 'dev,qa,master'
+                                )
+                            }
+                        }
+                    }
+                }
+
+                stage("Dependency-track") {
+                    when {
+                        expression {
+                            env.BRANCH_NAME == 'master'
+                        }
+                    }
+                    steps {
+                        script {
+                            container('gitleaks') {
+                                def jsonProjects = '''
+                                    {
+                                        "projects":[
+                                            {
+                                                "projectName":"Votre.Operaciones.PortalOperaciones",
+                                                "bomFile":"target/bom.json"
+                                            }
+                                        ]
+                                        }
+                                '''
+                                def projects = readJSON text: jsonProjects, returnPojo: true
+                                dependencyTrack(
+                                    projects: projects
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Artifact') {
+            when {
+                expression {
+                    env.BRANCH_NAME == 'master'
+                }
+            }
+            steps {
+                archiveArtifacts artifacts: "target/*.war"
+            }
+        }
+
+        stage("Deploy"){
+            when {
+                expression {
+                    env.BRANCH_NAME == 'dev' || env.BRANCH_NAME == 'qa' || env.BRANCH_NAME == 'master'
+                }
+            }
+            steps{
+                script {
+                    def nombreArtefacto = "PortalOperaciones.war" 
+                    def rutaArtefacto = "target/"
+
+                    if ( env.BRANCH_NAME != 'master' ) {
+                        def nombreAplicacionWas = env.NOMBRE_APLICACION+'-'+env.BRANCH_NAME
+                        
+                        def clusterName = 'DlloCluAppWas'
+                        if ( env.BRANCH_NAME == 'qa' ) {
+                            clusterName = 'DlloCluAppWas'
+                        }
+                        
+                        def wars = "{\"wars\": [{\"name\":\"PortalOperaciones\",\"war\":\"PortalOperaciones.war,WEB-INF/web.xml\",\"contextRoot\":\"/${BRANCH_NAME}/PortalOperaciones\"}]}"
+                        
+                        deploymentWasTest(
+                            wasSoapTestUser: WAS_SOAP_TEST_USR,
+                            wasSoapTestPass: WAS_SOAP_TEST_PSW,
+                            wasSshTestUsr: WAS_SSH_TEST_USR,
+                            wasSshTestPsw: WAS_SSH_TEST_PSW,
+                            rutaArtefacto: rutaArtefacto,
+                            nombreArtefacto: nombreArtefacto,
+                            nombreAplicacionWas: nombreAplicacionWas,
+                            clusterName: clusterName,
+                            wars: wars
+                        )
+                    } else {
+                        def nombreAplicacionWas = env.NOMBRE_APLICACION
+                        def clusterName = 'CluWS1PRD'
+
+                        def wars = "{\"wars\": [{\"name\":\"PortalOperaciones\",\"war\":\"PortalOperaciones.war,WEB-INF/web.xml\",\"contextRoot\":\"/PortalOperaciones\"}]}"
+
+                        deploymentWasLeonisavirtual(
+                            wasSoapPdnUser: WAS_SOAP_PDN_USR,
+                            wasSoapPdnPass: WAS_SOAP_PDN_PSW,
+                            wasSshPdnUsr: WAS_SSH_PDN_USR,
+                            wasSshPdnPsw: WAS_SSH_PDN_PSW,
+                            rutaArtefacto: rutaArtefacto,
+                            nombreArtefacto: nombreArtefacto,
+                            nombreAplicacionWas: nombreAplicacionWas,
+                            clusterName: clusterName,
+                            wars: wars
+                        )
+                    }
+                }
+            }
+        }
+    }
+
+    post{
+        always{
+            script{
+                googlechatnotification message: "Finaliza proceso CI/CD: ${currentBuild.fullDisplayName} \\nUrl:<${env.BUILD_URL}|link> resultado ${currentBuild.result}.  Ejecutado por: ${env.BUILD_USER}", notifyAborted: true, notifyBackToNormal: true, notifyFailure: true, notifyNotBuilt: true, notifySuccess: true, notifyUnstable: true, sameThreadNotification: true, suppressInfoLoggers: true, url: GCHAT_NOTIFICATION_URL
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body {
+	margin: 0px;
+	/*background-image: url(../imagenes/bg_cab_operaciones.jpg);*/
+	background-repeat:  no-repeat;
+	background-position: left top;
+	/*background-color: #6FDBFF;*/
+}
+
+#cab {
+	height: 101px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: solid;
+	border-left-style: none;
+	border-bottom-width: 5px;
+	border-bottom-color: #166BC8;
+}
+#name {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #969696;
+	text-transform:uppercase;
+	vertical-align: top;
+	padding-left: 15px;
+	padding-right: 10px;
+	text-decoration:none;
+	background-color: #FFF;
+	/*border-left-width: 189px;*/
+	/*border-left-style: solid;*/
+	border-left-color: #EBEBEB;
+}
+
+
+.link {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #969696;
+	vertical-align: top;
+	padding-left: 15px;
+	padding-right: 25px;
+	text-decoration:none;
+}
+
+
+.link:hover {
+	text-decoration:underline;
+	color: #c6c6c6;
+}

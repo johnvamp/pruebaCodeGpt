@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app name="PortalOperaciones">
+	
+	<recurso entidad="catalogo">
+		<accion accion="verCatalogo" localizacion="votre.portaloperaciones.solicitudcatalogo.catalogo.cmd.VerCatalogoCmd" siguiente="catalogo.jspCatalogo"/>
+		<accion nombre="jspCatalogo" localizacion="/jsp/solicitudcatalogo/catalogo.jsp"/>
+	</recurso>
+	
+	<recurso entidad="compradora">
+		<accion accion="verInformacionCompradora" localizacion="votre.portaloperaciones.solicitudcatalogo.compradora.cmd.VerInformacionCompradoraCmd" />
+		<accion accion="verListadoCompradoras" localizacion="votre.portaloperaciones.solicitudcatalogo.compradora.cmd.VerListadoCompradorasCmd" />
+		<accion accion="verModificar" localizacion="votre.portaloperaciones.solicitudcatalogo.compradora.cmd.VerActualizarDatosCmd" />
+		<accion accion="modificar" localizacion="votre.portaloperaciones.solicitudcatalogo.compradora.cmd.ModificarCmd" />
+		<accion accion="guardar" localizacion="votre.portaloperaciones.solicitudcatalogo.compradora.cmd.GuardarCmd" />
+		<accion accion="eliminar" localizacion="votre.portaloperaciones.solicitudcatalogo.compradora.cmd.EliminarCmd" />
+		<accion nombre="jspInformacion" localizacion="/jsp/solicitudcatalogo/informacionCompradora.jsp"/>
+		<accion nombre="jspListado" localizacion="/jsp/solicitudcatalogo/listadoCompradoras.jsp"/>
+		<accion nombre="jspEditar" localizacion="/jsp/solicitudcatalogo/editar.jsp"/>
+	</recurso>
+	
+	<recurso entidad="historial">
+		<accion accion="verInformacionReferencia" localizacion="votre.portaloperaciones.solicitudcatalogo.referencia.cmd.VerInformacionReferenciaCmd" />
+		<accion nombre="jspRelacion" localizacion="/jsp/solicitudcatalogo/relacionEnvio.jsp" />
+	</recurso>
+
+	<recurso entidad="labels">
+		<accion accion="cargarLabels" localizacion="votre.portaloperaciones.despachocatalogo.labels.cmd.CargarLabelsCmd" siguiente="labels.jspGenerar" />
+		<accion nombre="jspGenerar" localizacion="/jsp/despachocatalogo/generacionLabels.jsp" />
+	</recurso>
+	
+	<recurso entidad="reportes">
+		<accion accion="generarInformacion" localizacion="votre.portaloperaciones.despachocatalogo.reportes.cmd.GenerarInformacionCmd" siguiente="labels.cargarLabels" />
+		<accion accion="generarReportes" localizacion="votre.portaloperaciones.despachocatalogo.reportes.cmd.GenerarReportesCmd"/>
+	</recurso>
+	
+	<recurso entidad="embarque">
+		<accion accion="cargarTitulos" localizacion="votre.portaloperaciones.embarqueinternacional.embarque.cmd.CargarTitulosCmd" siguiente="embarque.jspInicio" />
+		<accion accion="verAbrirEmbarque" localizacion="votre.portaloperaciones.embarqueinternacional.embarque.cmd.VerAbrirEmbarqueCmd" siguiente="embarque.jspAbrir" />
+		<accion accion="verAccionesEmbarque" localizacion="votre.portaloperaciones.embarqueinternacional.embarque.cmd.VerAccionesEmbarqueCmd" siguiente="embarque.jspAcciones" />
+		<accion accion="abrirEmbarque" localizacion="votre.portaloperaciones.embarqueinternacional.embarque.cmd.AbrirEmbarqueCmd" />
+		<accion accion="verCargarEmbarque" localizacion="votre.portaloperaciones.embarqueinternacional.embarque.cmd.VerCargarEmbarqueCmd" siguiente="embarque.jspCargarDescargar" />
+		<accion accion="cargarEmbarque" localizacion="votre.portaloperaciones.embarqueinternacional.embarque.cmd.CargarEmbarqueCmd" siguiente="embarque.verCargarEmbarque" />
+		<accion accion="detenerEmbarque" localizacion="votre.portaloperaciones.embarqueinternacional.embarque.cmd.DetenerEmbarqueCmd" siguiente="embarque.verAccionesEmbarque" />
+		<accion accion="verCerrarEmbarque" localizacion="votre.portaloperaciones.embarqueinternacional.embarque.cmd.VerCerrarEmbarqueCmd" siguiente="embarque.jspCerrar" />
+		<accion accion="cerrarEmbarque" localizacion="votre.portaloperaciones.embarqueinternacional.embarque.cmd.CerrarEmbarqueCmd" />
+		<accion accion="verDesembarque" localizacion="votre.portaloperaciones.embarqueinternacional.embarque.cmd.VerDesembarqueCmd" siguiente="embarque.jspCargarDescargar" />
+		<accion accion="desembarcar" localizacion="votre.portaloperaciones.embarqueinternacional.embarque.cmd.DesembarcarCmd" siguiente="embarque.verDesembarque" />
+		<accion nombre="jspInicio" localizacion="/jsp/embarqueinternacional/inicioEmbarque.jsp" />
+		<accion nombre="jspAbrir" localizacion="/jsp/embarqueinternacional/abrirEmbarque.jsp" />
+		<accion nombre="jspAcciones" localizacion="/jsp/embarqueinternacional/accionesEmbarque.jsp" />
+		<accion nombre="jspCargarDescargar" localizacion="/jsp/embarqueinternacional/cargar_descargarEmbarque.jsp" />
+		<accion nombre="jspCerrar" localizacion="/jsp/embarqueinternacional/cerrarEmbarque.jsp" />
+	</recurso>
+	
+	<recurso entidad="transportador">
+		<accion accion="consultarCamiones" localizacion="votre.portaloperaciones.embarqueinternacional.transportador.cmd.ConsultarCamionesAjaxCmd" />
+	</recurso>
+	
+	<recurso entidad="pedidos">
+		<accion accion="pedidosInicio" localizacion="votre.portaloperaciones.pedidos.cmd.SeleccionarTipoPedidoCmd" siguiente="pedidos.jspPedidos"/>
+		<accion nombre="jspPedidos" localizacion="/jsp/pedidos/inicioPedido.jsp" />
+		<accion accion="pedidosAgregar"    	  localizacion="votre.portaloperaciones.pedidos.cmd.GuardarPedidoCmd" siguiente="pedidos.pedidosAgregarTipo"/>
+		<accion accion="pedidosAgregarTipo"   localizacion="votre.portaloperaciones.pedidos.cmd.SeleccionarTipoPedidoCmd" siguiente="pedidos.pedidosAgregarListar"/>
+		<accion accion="pedidosAgregarListar" localizacion="votre.portaloperaciones.pedidos.cmd.ListarDetalleCompradoraCmd" siguiente="pedidos.jspPedidos"/>
+	    <accion accion="buscarPedido" localizacion="votre.portaloperaciones.pedidos.cmd.SeleccionarTipoPedidoCmd" siguiente="pedidos.jspBuscarPedidos"/>
+		<accion nombre="jspBuscarPedidos" localizacion="/jsp/pedidos/buscarPedido.jsp" />
+		<accion accion="pedidosBuscarTipo"   localizacion="votre.portaloperaciones.pedidos.cmd.SeleccionarTipoPedidoCmd" siguiente="pedidos.pedidosBuscarListar"/>
+		<accion accion="pedidosBuscarListar" localizacion="votre.portaloperaciones.pedidos.cmd.ListarDetalleCompradoraCmd" siguiente="pedidos.jspBuscarPedidos"/>
+	</recurso>
+	
+	<recurso entidad="camion">
+		<accion accion="verConsultar" localizacion="votre.portaloperaciones.embarqueinternacional.camion.cmd.VerConsultarCmd" siguiente="camion.jspConsultas" />
+		<accion accion="consultarCamionesAbiertos" localizacion="votre.portaloperaciones.embarqueinternacional.camion.cmd.ConsultarCamionesAbiertosCmd" siguiente="camion.jspCamiones" />
+		<accion nombre="jspConsultas" localizacion="/jsp/embarqueinternacional/consultas.jsp" />
+		<accion nombre="jspCamiones" localizacion="/jsp/embarqueinternacional/camiones.jsp" />
+	</recurso>
+	
+	<recurso entidad="entrega">
+		<accion accion="verEntrega" localizacion="votre.portaloperaciones.embarqueinternacional.entrega.cmd.VerEntregaCmd" siguiente="entrega.jspEntrega" />
+		<accion accion="consultarCamionesEntrega" localizacion="votre.portaloperaciones.embarqueinternacional.entrega.cmd.ConsultarCamionesEntregaAjaxCmd" />
+		<accion accion="verEntregaParcial" localizacion="votre.portaloperaciones.embarqueinternacional.entrega.cmd.VerEntregaParcialCmd" siguiente="entrega.jspEntregaParcial" />
+		<accion accion="finalizarEntrega" localizacion="votre.portaloperaciones.embarqueinternacional.entrega.cmd.FinalizarEntregaCmd" siguiente="entrega.verEntrega" />
+		<accion accion="entregaParcial" localizacion="votre.portaloperaciones.embarqueinternacional.entrega.cmd.ConfirmarEntregaParcialCmd" siguiente="entrega.verEntregaParcial" />
+		<accion accion="verEntregaTotal" localizacion="votre.portaloperaciones.embarqueinternacional.entrega.cmd.VerEntregaTotalCmd" siguiente="embarque.jspCerrar" />
+		<accion accion="confirmarEntrega" localizacion="votre.portaloperaciones.embarqueinternacional.entrega.cmd.ConfirmarEntregaCmd" siguiente="embarque.cargarTitulos" />
+		<accion accion="procesarExcel" localizacion="votre.portaloperaciones.embarqueinternacional.entrega.cmd.ImportarEntregaCmd" />
+		<accion nombre="jspEntrega" localizacion="/jsp/embarqueinternacional/entregarEmbarque.jsp" />
+		<accion nombre="jspEntregaParcial" localizacion="/jsp/embarqueinternacional/entregaParcial.jsp" />
+		<accion nombre="jspEntregaExcel" localizacion="/jsp/embarqueinternacional/entregarEmbarqueExcel.jsp" />
+		<accion nombre="jspEntregasError" localizacion="/jsp/embarqueinternacional/entregasError.jsp" />
+	</recurso>
+	
+	<recurso entidad="reimprimir">
+		<accion accion="verReimprimir" localizacion="votre.portaloperaciones.embarqueinternacional.reimprimir.cmd.VerReimprimirCmd" siguiente="reimprimir.jspReimprimir" />
+		<accion accion="consultarCamionesReimprimir" localizacion="votre.portaloperaciones.embarqueinternacional.reimprimir.cmd.ConsultarCamionesReimprimirAjaxCmd" />
+		<accion accion="consultar" localizacion="votre.portaloperaciones.embarqueinternacional.reimprimir.cmd.ReimprimirCmd" siguiente="reimprimir.jspDetalle" />
+		<accion accion="generarExcel" localizacion="votre.portaloperaciones.embarqueinternacional.reimprimir.cmd.GenerarExcelCmd" />
+		<accion nombre="jspReimprimir" localizacion="/jsp/embarqueinternacional/reimprimir.jsp" />
+		<accion nombre="jspDetalle" localizacion="/jsp/embarqueinternacional/detalleEmbarque.jsp" />
+	</recurso>
+
+	<recurso entidad="consultasku">
+		<accion accion="cargarTitulos" localizacion="votre.portaloperaciones.consultasku.consultas.cmd.CargarTitulosCmd" siguiente="consultasku.jspConsultasSKU" />
+		<accion accion="consultarPrecios" localizacion="votre.portaloperaciones.consultasku.consultas.cmd.ConsultarPreciosCmd" siguiente="consultasku.jspConsultaPrecios" />
+		<accion accion="consultarAuditoria" localizacion="votre.portaloperaciones.consultasku.consultas.cmd.ConsultarAuditoriaCmd" siguiente="consultasku.jspConsultaAuditoria" />
+		<accion accion="consultarDescripcion" localizacion="votre.portaloperaciones.consultasku.consultas.cmd.ConsultarDescripcionCmd" siguiente="consultasku.jspConsultaDescripcion" />
+		<accion nombre="jspConsultasSKU" localizacion="/jsp/consultasku/consultasSKU.jsp" />
+		<accion nombre="jspConsultaPrecios" localizacion="/jsp/consultasku/consultaPrecios.jsp" />
+		<accion nombre="jspConsultaAuditoria" localizacion="/jsp/consultasku/consultaAuditoria.jsp" />
+		<accion nombre="jspConsultaDescripcion" localizacion="/jsp/consultasku/consultaDescripcion.jsp" />
+	</recurso>
+
+	<recurso entidad="suscripciones">
+		<accion accion="consultarCompradora" localizacion="votre.portaloperaciones.suscripcioncatalogo.cmd.ConsultarCompradoraCmd" />
+		<accion accion="ingresarCatalogos" localizacion="votre.portaloperaciones.suscripcioncatalogo.cmd.IngresarCatalogosCmd" siguiente="suscripciones.jspResultadoCatalogos" />
+		<accion accion="cancelarCatalogos" localizacion="votre.portaloperaciones.suscripcioncatalogo.cmd.CancelarCatalogosCmd" siguiente="suscripciones.jspResultadoCatalogos" />
+		<accion nombre="jspSolicitudId" localizacion="/jsp/suscripcioncatalogo/solicitudId.jsp" />
+		<accion nombre="jspFormCatalogos" localizacion="/jsp/suscripcioncatalogo/formCatalogos.jsp" />
+		<accion nombre="jspResultadoCatalogos" localizacion="/jsp/suscripcioncatalogo/resultadoCatalogos.jsp" />
+		<accion nombre="jspPoliticas" localizacion="/jsp/suscripcioncatalogo/politicas.jsp" />
+	</recurso>
+
+	<recurso entidad="activaciondemandas">
+		<accion accion="verIngreso" localizacion="votre.portaloperaciones.activaciondemandas.cmd.VerIngresoDemandaCmd" siguiente="activaciondemandas.jspIngreso"/>
+		<accion accion="validarIngreso" localizacion="votre.portaloperaciones.activaciondemandas.cmd.ValidarIngresoDemandaCmd"/>
+		<accion accion="grabarNovedad" localizacion="votre.portaloperaciones.activaciondemandas.cmd.GrabarNovedadDemandaCmd"/>
+		<accion accion="consultarAprobaciones" localizacion="votre.portaloperaciones.activaciondemandas.cmd.ConsultarAprobacionesCmd" siguiente="activaciondemandas.jspAprobaciones"/>
+		<accion accion="procesarAprobacionAjax" localizacion="votre.portaloperaciones.activaciondemandas.cmd.ProcesarAprobacionAjaxCmd"/>
+		<accion accion="consultarCasos" localizacion="votre.portaloperaciones.activaciondemandas.cmd.ConsultarCasosCmd"/>
+		<accion accion="verDetalleCaso" localizacion="votre.portaloperaciones.activaciondemandas.cmd.VerDetalleCasoCmd" siguiente="activaciondemandas.jspDetalleCaso"/>
+		<accion accion="consultarEnviosManuales" localizacion="votre.portaloperaciones.activaciondemandas.cmd.ConsultarEnviosManualesCmd"/>
+		<accion accion="procesarEnvioManualAjax" localizacion="votre.portaloperaciones.activaciondemandas.cmd.ProcesarEnvioManualAjaxCmd"/>
+		<accion accion="modificarEnviosManuales" localizacion="votre.portaloperaciones.activaciondemandas.cmd.ModificarEnviosManualesCmd" siguiente="activaciondemandas.jspModificacionEnvios"/>
+		<accion accion="procesarModificacionEnvioAjax" localizacion="votre.portaloperaciones.activaciondemandas.cmd.ProcesarModificacionEnvioAjaxCmd"/>
+		<accion accion="asignarTransportadores" localizacion="votre.portaloperaciones.activaciondemandas.cmd.AsignarTransportadoresCmd" siguiente="activaciondemandas.consultarGuiasMaster"></accion>
+		<accion accion="consultarReferencias" localizacion="votre.portaloperaciones.activaciondemandas.cmd.ConsultarReferenciasCmd"></accion>
+		<accion accion="generarGuias" localizacion="votre.portaloperaciones.activaciondemandas.cmd.GenerarGuiasCmd" siguiente="activaciondemandas.consultarGuiasMaster"></accion>
+		<accion accion="cambiarACorreoExtra" localizacion="votre.portaloperaciones.activaciondemandas.cmd.CambiarACorreoExtraCmd"></accion>
+		<accion accion="eliminarEnvios" localizacion="votre.portaloperaciones.activaciondemandas.cmd.EliminarEnviosCmd" siguiente="activaciondemandas.jspEliminarEnvios"></accion>
+		<accion accion="consultarGuiasMaster" localizacion="votre.portaloperaciones.activaciondemandas.cmd.ConsultarGuiasMasterCmd" siguiente="activaciondemandas.jspAsignarTransportadores"></accion>
+		<accion accion="imprimirGuiasMaster" localizacion="votre.portaloperaciones.activaciondemandas.cmd.ImprimirGuiasMasterCmd" siguiente="activaciondemandas.consultarGuiasMaster"></accion>
+
+		<accion nombre="jspIngreso" localizacion="/jsp/activaciondemandas/ingresos/formIngreso.jsp"/>
+		<accion nombre="jspValidacion" localizacion="/jsp/activaciondemandas/ingresos/formValidacion.jsp"/>
+		<accion nombre="jspAprobaciones" localizacion="/jsp/activaciondemandas/aprobaciones/formAprobaciones.jsp"/>
+		<accion nombre="jspCasos" localizacion="/jsp/activaciondemandas/consultas/formCasos.jsp"/>
+		<accion nombre="jspDetalleCaso" localizacion="/jsp/activaciondemandas/consultas/detalleCaso.jsp"/>
+		<accion nombre="jspEnviosManuales" localizacion="/jsp/activaciondemandas/envios/formEnvios.jsp"/>
+		<accion nombre="jspModificacionEnvios" localizacion="/jsp/activaciondemandas/envios/formModificaciones.jsp"/>
+		<accion nombre="jspAsignarTransportadores" localizacion="/jsp/activaciondemandas/transportadores/asignarTransportadores.jsp"/>
+		<accion nombre="jspCambiarReferencias" localizacion="/jsp/activaciondemandas/cambiarReferencias/cambiarReferencias.jsp"></accion>
+		<accion nombre="jspResumenReferencias" localizacion="/jsp/activaciondemandas/cambiarReferencias/resumenReferencias.jsp"></accion>
+		<accion nombre="jspEliminarEnvios" localizacion="/jsp/activaciondemandas/eliminarEnvios/eliminarEnvios.jsp"></accion>
+	</recurso>
+	
+	<recurso entidad="seguridad">
+		<accion accion="cargarMenu" localizacion="votre.portaloperaciones.seguridad.cmd.CargarMenuCmd" siguiente="menu"/>
+		<accion nombre="jspFrames" localizacion="/jsp/frames.html"/>
+	</recurso>
+	
+	<recurso entidad="flujo">
+		<accion accion="flujowms" localizacion="votre.portaloperaciones.flujowms.cmd.TituloFlujoWmsCmd" siguiente="flujo.cargarTitulosFlujowms" />
+		<accion accion="cargarTitulosFlujowms" localizacion="votre.portaloperaciones.flujowms.cmd.FlujoWmsCmd" siguiente="flujo.jspflujowms" />
+		<accion nombre="jspflujowms" localizacion="/jsp/flujoWms/flujoWmsDetalle.jsp" />
+		<accion accion="flujoXLS" localizacion="votre.portaloperaciones.flujowms.cmd.FlujoWmsXls"/>
+		<accion accion="consultarEstados" localizacion="votre.portaloperaciones.flujowms.cmd.ConsultarEstadosCmd" siguiente="flujo.jspEstados"></accion>
+		<accion accion="consultarDetalleEstado" localizacion="votre.portaloperaciones.flujowms.cmd.ConsultarDetalleEstadoCmd" siguiente="flujo.jspDetalleEstado"></accion>
+		<accion accion="generarExcelDetalle" localizacion="votre.portaloperaciones.flujowms.cmd.GenerarExcelDetalleCmd"></accion>
+		<accion nombre="jspEstados" localizacion="/jsp/flujoWms/estados.jsp"></accion>
+		<accion nombre="jspDetalleEstado" localizacion="/jsp/flujoWms/detalleEstado.jsp"></accion>
+	</recurso>
+	
+	<recurso entidad="indicaPedido">
+		<accion accion="consultarDatosCombo" localizacion="votre.portaloperaciones.indicadordepedidos.cmd.ConsultarDatosComboCmd" siguiente="indicaPedido.jspindicaPedidos"/>
+		<accion nombre="jspindicaPedidos" localizacion="/jsp/indicadordepedidos/indicadordepedidos.jsp" />
+		<accion accion="generarIndicadores" localizacion="votre.portaloperaciones.indicadordepedidos.cmd.IndicadorPedidosCmd" siguiente="indicaPedido.jspindicaPedidos2"/>
+		<accion accion="consultarCiudades" localizacion="votre.portaloperaciones.indicadordepedidos.cmd.ConsultarCiudadCombo" siguiente="indicaPedido.consultarDatosCombo"/>
+		<accion nombre="jspindicaPedidos2" localizacion="/jsp/indicadordepedidos/indicadordepedidos2.jsp" />
+		<accion accion="jspindicaPedidosEstado" localizacion="votre.portaloperaciones.indicadordepedidos.cmd.IndicadorPedidosEstadoCmd"  siguiente="indicaPedido.jspindicaPedidosEstado1"/>
+		<accion nombre="jspindicaPedidosEstado1" localizacion="/jsp/indicadordepedidos/indicadordepedidosEstado.jsp" />
+		<accion accion="indicaPedidosXLS" localizacion="votre.portaloperaciones.indicadordepedidos.cmd.IndicadorPedidosXls"/>
+		<accion accion="jsppedidosPorRango" localizacion="votre.portaloperaciones.indicadordepedidos.cmd.PedidosPorRangoCmd"  siguiente="indicaPedido.jsppedidosPorRango2"/>
+		<accion nombre="jsppedidosPorRango2" localizacion="/jsp/indicadordepedidos/indicadordepedidosRango.jsp" />
+	</recurso>
+ 		
+ 	<recurso entidad="transportistas">
+ 		<accion accion="pedidosTransportCombo" localizacion="votre.portaloperaciones.transportistas.cmd.PediTransportCampaniasCMD" />
+ 		<accion accion="transportistasPediPendi" localizacion="votre.portaloperaciones.transportistas.cmd.PedidosTransCmd" siguiente="transportistas.jspTransportistasPediPendi" />
+		<accion nombre="jspTransportistasPediPendi" localizacion="/jsp/transportistas/transportistasPediPendi.jsp" />
+		<accion accion="transportistasPediEntre" localizacion="votre.portaloperaciones.transportistas.cmd.PedidosTransCmd" siguiente="transportistas.jspTransportistasPediEntre" />
+		<accion nombre="jspTransportistasPediEntre" localizacion="/jsp/transportistas/transportistasPediEntre.jsp" />
+		<accion accion="transportistasPediNoEntre" localizacion="votre.portaloperaciones.transportistas.cmd.PedidosTransCmd" siguiente="transportistas.jspTransportistasPediNoEntre" />
+		<accion nombre="jspTransportistasPediNoEntre" localizacion="/jsp/transportistas/transportistasPediNoEntre.jsp" />
+		<accion accion="transportistasXLS" localizacion="votre.portaloperaciones.transportistas.cmd.PedidosTransXls"/>
+		<accion accion="transportistasSeleccionarXLS" localizacion="votre.portaloperaciones.transportistas.cmd.PedidosTransSelecXls"/>
+		<accion accion="transportistasGuardar" localizacion="votre.portaloperaciones.transportistas.cmd.GuardarTransCmd" siguiente="transportistas.transportistasGuardar2" />
+		<accion accion="transportistasGuardar2" localizacion="votre.portaloperaciones.transportistas.cmd.PedidosTransCmd" siguiente="transportistas.jspTransportistasGuardar" />
+		<accion nombre="jspTransportistasGuardar" localizacion="/jsp/transportistas/transportistasPediPendi.jsp" />
+		<accion accion="transportistasGuardarLista" localizacion="votre.portaloperaciones.transportistas.cmd.GuardarTransListaCmd" siguiente="transportistas.transportistasGuardarLista2" />
+		<accion accion="transportistasGuardarLista2" localizacion="votre.portaloperaciones.transportistas.cmd.PedidosTransCmd" siguiente="transportistas.jspTransportistasGuardar" />
+		<accion nombre="jspTransportistasGuardar" localizacion="/jsp/transportistas/transportistasPediPendi.jsp"/>
+		<accion accion="transporSeleccionar" localizacion="votre.portaloperaciones.transportistas.cmd.SeleccionarTransCmd" siguiente="transportistas.transporSeleccionar2" />
+		<accion accion="transporSeleccionar2" localizacion="votre.portaloperaciones.transportistas.cmd.SeleccionarTransBuscarCmd" siguiente="transportistas.jsptransporSeleccionar" />
+		<accion nombre="jsptransporSeleccionar" localizacion="/jsp/transportistas/transportistaSeleccionar.jsp"/>
+		<accion accion="transporReversarEstado" localizacion="votre.portaloperaciones.transportistas.cmd.ReversarEstadoCmd" siguiente="transportistas.transporSeleccionar" />
+		<accion accion="guardarEntregados" localizacion="votre.portaloperaciones.transportistas.cmd.GuardarEntregadosCmd" siguiente="transportistas.transportistasPediPendi"></accion>
+		<accion accion="devolverEstado" localizacion="votre.portaloperaciones.transportistas.cmd.PedidosDevolverEstadoCmd" ></accion>
+	</recurso>
+	
+	<recurso entidad="reprocesos">
+		<accion accion="crearNeuvaSolicitud" localizacion="votre.portaloperaciones.reprocesos.cmd.CrearNuevaSolictudCmd" siguiente="reprocesos.jspAgregarReferencia"></accion>
+		<accion accion="agregarReferencia" localizacion="votre.portaloperaciones.reprocesos.cmd.AgregarReferenciaCmd" siguiente="reprocesos.jspAgregarReferencia"></accion>
+		<accion accion="consultarSolicitudes" localizacion="votre.portaloperaciones.reprocesos.cmd.ConsultarSolicitudesCmd" siguiente="reprocesos.jspRevisarSolicitud"></accion>
+		<accion accion="verDatalleSolicitud" localizacion="votre.portaloperaciones.reprocesos.cmd.VerDetalleSolicitudCmd"></accion>
+		<accion accion="aprobarSolicitud" localizacion="votre.portaloperaciones.reprocesos.cmd.AprobarSolicitudCmd" siguiente="reprocesos.consultarSolicitudes"></accion>
+		<accion accion="consultarRequerimientos" localizacion="votre.portaloperaciones.reprocesos.cmd.ConsultarRequerimientosCmd"></accion>
+		<accion accion="procesarReferencia" localizacion="votre.portaloperaciones.reprocesos.cmd.ProcesarReferenciaCmd" siguiente="reprocesos.consultarRequerimientos"></accion>
+		<accion nombre="jspIngresarSolicitud" localizacion="/jsp/reprocesos/ingresarSolicitud.jsp"></accion>
+		<accion nombre="jspAgregarReferencia" localizacion="/jsp/reprocesos/agregarReferencia.jsp"></accion>
+		<accion nombre="jspRevisarSolicitud" localizacion="/jsp/reprocesos/revisarSolicitud.jsp"></accion>
+		<accion nombre="jspDetalleSolicitud" localizacion="/jsp/reprocesos/detalleSolicitud.jsp"></accion>
+		<accion nombre="jspAprobarSolicitud" localizacion="/jsp/reprocesos/aprobarSolicitud.jsp"></accion>
+		<accion nombre="jspModificarSolicitud" localizacion="/jsp/reprocesos/modificarSolicitud.jsp"></accion>
+		<accion nombre="jspRechazarSolicitud" localizacion="/jsp/reprocesos/rechazarSolicitud.jsp"></accion>
+		<accion nombre="jspSolicitudInsumos" localizacion="/jsp/reprocesos/solicitudInsumos.jsp"></accion>
+		<accion nombre="jspEjecucionReproceso" localizacion="/jsp/reprocesos/ejecucionReproceso.jsp"></accion>
+		<accion nombre="jspDetalleReproceso" localizacion="/jsp/reprocesos/detalleReproceso.jsp"></accion>
+	</recurso>
+	
+	<recurso entidad="embarquecatalogo">
+		<accion accion="consultarTransportadoras" localizacion="votre.portaloperaciones.despachocatalogo.embarquecatalogo.cmd.ConsultarTransportadorasCmd" siguiente="embarquecatalogo.embarcarCatalogo"></accion>
+		<accion accion="enviarGuias" localizacion="votre.portaloperaciones.despachocatalogo.embarquecatalogo.cmd.EnviarGuiasEmbarqueCmd" siguiente="embarquecatalogo.consultarTransportadoras"></accion>
+		<accion nombre="embarcarCatalogo" localizacion="/jsp/embarquecatalogo/embarcarCatalogo.jsp"></accion>
+	</recurso>
+	
+	<recurso entidad="pedidoscsl">
+		<accion accion="listarPedidos" localizacion="votre.portaloperaciones.pedidoscsl.cmd.ListarPedidosCmd" siguiente="pedidoscsl.jspCrearSolicitud"></accion>
+		<accion accion="verPedidoIndividual" localizacion="votre.portaloperaciones.pedidoscsl.cmd.VerPedidoIndividualCmd" siguiente="pedidoscsl.jspPedidoIndividual"></accion>
+		<accion accion="validarSolicitudAjax" localizacion="votre.portaloperaciones.pedidoscsl.cmd.ValidarSolicitudAjaxCmd"></accion>
+		<accion accion="grabarPedidos" localizacion="votre.portaloperaciones.pedidoscsl.cmd.GrabarPedidosCmd"></accion>
+		<accion accion="consultarSolicitud" localizacion="votre.portaloperaciones.pedidoscsl.cmd.ConsultarSolicitudCmd" siguiente="pedidoscsl.jspListaSolicitudes"></accion>
+		<accion accion="consultarDetalleSolicitud" localizacion="votre.portaloperaciones.pedidoscsl.cmd.ConsultarDetalleSolicitudCmd" siguiente="pedidoscsl.jspDetalleSolicitud"></accion>
+		<accion accion="consultarAuditoriaSolicitud" localizacion="votre.portaloperaciones.pedidoscsl.cmd.ConsultarAuditoriaSolicitudCmd" siguiente="pedidoscsl.jspAuditoriaSolicitud"></accion>
+		<accion accion="verImportarExcel" localizacion="votre.portaloperaciones.pedidoscsl.cmd.VerImportarExcelCmd" siguiente="pedidoscsl.jspImportarExcel"></accion>
+		<accion accion="importarExcel" localizacion="votre.portaloperaciones.pedidoscsl.cmd.ImportarExcelCmd"></accion>
+		
+		<accion nombre="jspCrearSolicitud" localizacion="/jsp/pedidoscsl/crearSolicitud.jsp"></accion>
+		<accion nombre="jspPedidoIndividual" localizacion="/jsp/pedidoscsl/crearPedidoIndividual.jsp"></accion>
+		<accion nombre="jspConsultarSolicitud" localizacion="/jsp/pedidoscsl/consultarSolicitud.jsp"></accion>
+		<accion nombre="jspListaSolicitudes" localizacion="/jsp/pedidoscsl/listaSolicitudes.jsp"></accion>
+		<accion nombre="jspDetalleSolicitud" localizacion="/jsp/pedidoscsl/detalleSolicitud.jsp"></accion>
+		<accion nombre="jspAuditoriaSolicitud" localizacion="/jsp/pedidoscsl/auditoriaSolicitud.jsp"></accion>
+		<accion nombre="jspImportarExcel" localizacion="/jsp/pedidoscsl/importarExcel.jsp"></accion>
+		<accion nombre="jspListaPedidosExcel" localizacion="/jsp/pedidoscsl/listaPedidosExcel.jsp"></accion>
+		<accion nombre="jspErrorExcel" localizacion="/jsp/pedidoscsl/errorExcel.jsp"></accion>
+	</recurso>
+
+	<recursoAceptado accion="validar" localizacion="votre.portaloperaciones.seguridad.cmd.ValidarUsuarioCmd" siguiente=""/>
+	<recursoAceptado accion="login"  localizacion="votre.portaloperaciones.seguridad.cmd.VerLoginCmd" siguiente="jspLogin"/>	
+	<recursoAceptado accion="cargarCompania" localizacion="votre.portaloperaciones.seguridad.cmd.ConsultarCompaniasCmd"/>
+	<recursoAceptado accion="salir"  localizacion="votre.portaloperaciones.seguridad.cmd.SalirCmd" siguiente="jspSalida"/>
+	<recursoAceptado accion="cambiarClave" localizacion="votre.portaloperaciones.seguridad.cmd.CambiarClaveCmd" />
+	<recursoAceptado accion="habilitarPagina" localizacion="votre.portaloperaciones.seguridad.cmd.ValidarExportarAjaxCmd"/>
+	<recursoAceptado nombre="jspLogin" localizacion="/jsp/login.jsp"/>
+	<recursoAceptado nombre="jspSalida" localizacion="/jsp/salida.jsp"/>
+	<recursoAceptado nombre="cabezote" localizacion="/jsp/cabezote.jsp"/>
+	<recursoAceptado nombre="menu" localizacion="/jsp/menu.jsp"/>
+	<recursoAceptado nombre="pie" localizacion="/jsp/pie.html"/>
+	<recursoAceptado nombre="pestana" localizacion="/jsp/pestana.html"/>
+	<recursoAceptado nombre="bienvenida" localizacion="/jsp/bienvenida.html"/>
+	<recursoAceptado nombre="jspCambiarClave" localizacion="/jsp/cambiarClave.jsp"/>
+	
+	<!-- Recursos para la APP de Transportitas -->
+	<recursoAceptado accion="movil.validarUsuario" localizacion="votre.portaloperaciones.seguridad.cmd.ValidarUsuarioMovilCmd" siguiente=""/>
+	<recursoAceptado accion="movil.cargarCompania" localizacion="votre.portaloperaciones.seguridad.cmd.ConsultarCompaniasMovilCmd"/>	
+	<recursoAceptado accion="movil.enviarMaestrosIniciales" localizacion="votre.portaloperaciones.transportistas.cmd.EnviarMaestrosMovilCmd"/>
+	<recursoAceptado accion="movil.guardarEntregadosMovil" localizacion="votre.portaloperaciones.transportistas.cmd.GuardarEntregadosMovilCmd"/>
+	<recursoAceptado accion="movil.consultarCampanasPedidosTrans" localizacion="votre.portaloperaciones.transportistas.cmd.ConsultarCampanasPedidosTransCmd"/>
+	<recursoAceptado accion="movil.consultarPedidosPendientesTrans" localizacion="votre.portaloperaciones.transportistas.cmd.ConsultarPedidosPendientesTransCmd"/>
+    <recursoAceptado accion="movil.cambiarContrasena" localizacion="votre.portaloperaciones.transportistas.cmd.CambiarContrasenaMovilCmd"/>
+	
+</app>

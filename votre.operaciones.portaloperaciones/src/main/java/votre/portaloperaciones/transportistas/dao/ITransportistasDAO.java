@@ -1,0 +1,24 @@
+package votre.portaloperaciones.transportistas.dao;
+
+import java.util.ArrayList;
+import votre.portaloperaciones.transportistas.beans.TransportistaReversarDTO;
+import votre.portaloperaciones.transportistas.beans.TransportistasComboDTO;
+import votre.portaloperaciones.transportistas.beans.TransportistasDTO;
+import votre.portaloperaciones.transportistas.beans.TransportistasSeleccionarDTO;
+
+import co.com.personalsoft.base.excepcion.PersonalsoftException;
+
+public interface ITransportistasDAO {
+public ArrayList<TransportistasDTO> consultaTransportitas (TransportistasDTO transportistasDTO) throws PersonalsoftException;
+public TransportistasDTO consultaTransportitasGuardar (TransportistasDTO transportistasDTO) throws PersonalsoftException;
+
+//public ArrayList<TransportistasComboDTO> consultaTransportitasCombo (TransportistasComboDTO transportistasComboDTO) throws PersonalsoftException;
+public TransportistasComboDTO consultaTransportitasCombo (TransportistasComboDTO transportistasComboDTO) throws PersonalsoftException;
+
+public TransportistasSeleccionarDTO consultaTransportitasListas (TransportistasSeleccionarDTO transportistasSeleccionarDTO) throws PersonalsoftException;
+
+public TransportistasDTO consultaTransportitasGuardarMovil(TransportistasDTO transportistasDTO) throws PersonalsoftException;
+
+public TransportistaReversarDTO reversarEstado(TransportistaReversarDTO reversar) throws PersonalsoftException;
+
+}

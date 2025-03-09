@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="WebApp_ID" version="2.4" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>PortalOperaciones</display-name>
+
+	<context-param>
+		<description/>
+		<param-name>rutaArchivoConfiguracionFW</param-name>
+		<param-value>/WEB-INF/configuracionFW.xml</param-value>
+	</context-param>
+	<context-param>
+		<description/>
+		<param-name>archivoConfiguracionCache</param-name>
+		<param-value>/WEB-INF/Cache-config.xml</param-value>
+	</context-param>
+
+	<filter>
+		<description/>
+		<display-name>FiltroSesion</display-name>
+		<filter-name>FiltroSesion</filter-name>
+		<filter-class>
+			votre.portaloperaciones.seguridad.filtros.FiltroSesion
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>FiltroSesion</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<listener>
+		<description>
+		</description>
+		<display-name>
+		SessionListener</display-name>
+		<listener-class>votre.portaloperaciones.seguridad.cmd.SessionListener</listener-class>
+	</listener>
+	<servlet>
+		<description/>
+		<display-name>FrontController</display-name>
+		<servlet-name>FrontController</servlet-name>
+		<servlet-class>
+			co.com.personalsoft.base.ctrl.FrontController
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<description/>
+		<display-name>CacheConfigurator</display-name>
+		<servlet-name>CacheConfigurator</servlet-name>
+		<servlet-class>
+			votre.portaloperaciones.servlet.CacheConfigurator
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>FrontController</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CacheConfigurator</servlet-name>
+		<url-pattern>/CacheConfigurator</url-pattern>
+	</servlet-mapping>
+    
+    <servlet>
+     <description> 
+     </description> 
+     <display-name> JFreeChartServlet</display-name> 
+     <servlet-name>JFreeChartServlet</servlet-name>
+      <servlet-class> com.sandeep.jfreechart.servlet.JFreeChartServlet</servlet-class>
+       </servlet>
+    
+       <servlet-mapping> 
+       <servlet-name>JFreeChartServlet</servlet-name> 
+       <url-pattern>/JFreeChartServlet</url-pattern>
+        </servlet-mapping>
+    
+    <session-config> 
+                <session-timeout>20</session-timeout> 
+   	</session-config>
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<jsp-config>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+			<taglib-location>/WEB-INF/tld/c.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>http://ajaxtags.org/tags/ajax</taglib-uri>
+			<taglib-location>/WEB-INF/tld/ajaxtags.tld</taglib-location>
+		</taglib>
+		<taglib>
+		    <taglib-uri>http://jsptags.com/tags/navigation/pager</taglib-uri>
+		    <taglib-location>/WEB-INF/tld/pager-taglib.tld</taglib-location>
+  		</taglib>
+  		<taglib>
+		    <taglib-uri>http://jsptags.com/tags/personal/autorizador</taglib-uri>
+		    <taglib-location>/WEB-INF/tld/personal.tld</taglib-location>
+  		</taglib>
+	</jsp-config>
+
+</web-app>

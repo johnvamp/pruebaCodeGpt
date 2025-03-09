@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+		
+	<appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="[%d{dd/MM/yyyy hh:mm}] %-5p %C{1}.%M() -> %m%n" />
+		</layout>
+	</appender>
+	<appender name="GeneralAppender" class="org.apache.log4j.RollingFileAppender"> 
+	    <param name="file" value="C:/was/LogWebsphere/logs/srvWebServices/PortalOperaciones/logPortalOperaciones_Error.log"/>
+	    <param name="MaxFileSize" value="2000KB"/>
+	    <param name="MaxBackupIndex" value="5"/>
+	    
+	    <layout class="org.apache.log4j.PatternLayout"> 
+	      <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %5p %5c [%t] (%F->%M:%L) - %m%n"/> 
+	    </layout> 	    
+		<filter class= "org.apache.log4j.varia.LevelRangeFilter">
+			<param name= "LevelMin" value= "ERROR"/>
+			<param name= "LevelMax" value= "FATAL"/>
+		</filter>
+  	</appender> 
+	<appender name="TransaccionesAppender" class="org.apache.log4j.RollingFileAppender"> 
+	    <param name="file" value="C:/was/LogWebsphere/logs/srvWebServices/PortalOperaciones/logPortalOperaciones_Info.log"/>
+	    <param name="MaxFileSize" value="1000KB"/>
+	    <param name="MaxBackupIndex" value="5"/>
+	    
+	    <layout class="org.apache.log4j.PatternLayout"> 
+	      <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} - %m%n"/> 
+	    </layout> 	    
+		<filter class= "org.apache.log4j.varia.LevelRangeFilter">
+          	<param name= "LevelMin" value= "INFO"/>
+			<param name= "LevelMax" value= "WARN"/>
+		</filter>
+  	</appender> 
+	
+	<appender name="ConsultasSkuAppender" class="org.apache.log4j.RollingFileAppender"> 
+	    <param name="file" value="C:/was/LogWebsphere/logs/srvWebServices/PortalOperaciones/logConsultasSku_Error.log"/>
+	    <param name="MaxFileSize" value="1000KB"/>
+	    <param name="MaxBackupIndex" value="5"/>
+	    
+	    <layout class="org.apache.log4j.PatternLayout"> 
+	      <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %5p %5c [%t] (%F->%M:%L) - %m%n"/> 
+	    </layout> 	    
+		<filter class= "org.apache.log4j.varia.LevelRangeFilter">
+			<param name= "LevelMin" value= "ERROR"/>
+			<param name= "LevelMax" value= "FATAL"/>
+		</filter>
+  	</appender> 
+
+	<appender name="DespachosAppender" class="org.apache.log4j.RollingFileAppender"> 
+	    <param name="file" value="C:/was/LogWebsphere/logs/srvWebServices/PortalOperaciones/logDespachoCat_Error.log"/>
+	    <param name="MaxFileSize" value="1000KB"/>
+	    <param name="MaxBackupIndex" value="5"/>
+	    
+	    <layout class="org.apache.log4j.PatternLayout"> 
+	      <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %5p %5c [%t] (%F->%M:%L) - %m%n"/> 
+	    </layout> 	    
+		<filter class= "org.apache.log4j.varia.LevelRangeFilter">
+			<param name= "LevelMin" value= "ERROR"/>
+			<param name= "LevelMax" value= "FATAL"/>
+		</filter>
+  	</appender> 
+
+	<appender name="EmbarquesAppender" class="org.apache.log4j.RollingFileAppender"> 
+	    <param name="file" value="C:/was/LogWebsphere/logs/srvWebServices/PortalOperaciones/logEmbarques_Error.log"/>
+	    <param name="MaxFileSize" value="1000KB"/>
+	    <param name="MaxBackupIndex" value="5"/>
+	    
+	    <layout class="org.apache.log4j.PatternLayout"> 
+	      <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %5p %5c [%t] (%F->%M:%L) - %m%n"/> 
+	    </layout> 	    
+		<filter class= "org.apache.log4j.varia.LevelRangeFilter">
+			<param name= "LevelMin" value= "ERROR"/>
+			<param name= "LevelMax" value= "FATAL"/>
+		</filter>
+  	</appender> 
+
+	<appender name="ServiciosAppender" class="org.apache.log4j.RollingFileAppender"> 
+	    <param name="file" value="C:/was/LogWebsphere/logs/srvWebServices/PortalOperaciones/logServicios_Error.log"/>
+	    <param name="MaxFileSize" value="1000KB"/>
+	    <param name="MaxBackupIndex" value="5"/>
+	    
+	    <layout class="org.apache.log4j.PatternLayout"> 
+	      <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %5p %5c [%t] (%F->%M:%L) - %m%n"/> 
+	    </layout> 	    
+		<filter class= "org.apache.log4j.varia.LevelRangeFilter">
+			<param name= "LevelMin" value= "ERROR"/>
+			<param name= "LevelMax" value= "FATAL"/>
+		</filter>
+  	</appender> 
+
+	<appender name="SolicitudAppender" class="org.apache.log4j.RollingFileAppender"> 
+	    <param name="file" value="C:/was/LogWebsphere/logs/srvWebServices/PortalOperaciones/logSolicitudCat_Error.log"/>
+	    <param name="MaxFileSize" value="1000KB"/>
+	    <param name="MaxBackupIndex" value="5"/>
+	    
+	    <layout class="org.apache.log4j.PatternLayout"> 
+	      <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %5p %5c [%t] (%F->%M:%L) - %m%n"/> 
+	    </layout> 	    
+		<filter class= "org.apache.log4j.varia.LevelRangeFilter">
+			<param name= "LevelMin" value= "ERROR"/>
+			<param name= "LevelMax" value= "FATAL"/>
+		</filter>
+  	</appender> 
+
+	<appender name="SuscripcionesAppender" class="org.apache.log4j.RollingFileAppender"> 
+	    <param name="file" value="C:/was/LogWebsphere/logs/srvWebServices/PortalOperaciones/logSuscripcionCat_Error.log"/>
+	    <param name="MaxFileSize" value="1000KB"/>
+	    <param name="MaxBackupIndex" value="5"/>
+	    
+	    <layout class="org.apache.log4j.PatternLayout"> 
+	      <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %5p %5c [%t] (%F->%M:%L) - %m%n"/> 
+	    </layout> 	    
+		<filter class= "org.apache.log4j.varia.LevelRangeFilter">
+			<param name= "LevelMin" value= "ERROR"/>
+			<param name= "LevelMax" value= "FATAL"/>
+		</filter>
+  	</appender> 
+
+	<appender name="ActivacionesDemandaAppender" class="org.apache.log4j.RollingFileAppender"> 
+	    <param name="file" value="C:/was/LogWebsphere/logs/srvWebServices/PortalOperaciones/logActivacionesDemanda_Error.log"/>
+	    <param name="MaxFileSize" value="1000KB"/>
+	    <param name="MaxBackupIndex" value="5"/>
+	    
+	    <layout class="org.apache.log4j.PatternLayout"> 
+	      <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %5p %5c [%t] (%F->%M:%L) - %m%n"/> 
+	    </layout> 	    
+		<filter class= "org.apache.log4j.varia.LevelRangeFilter">
+			<param name= "LevelMin" value= "ERROR"/>
+			<param name= "LevelMax" value= "FATAL"/>
+		</filter>
+  	</appender> 
+
+	<logger name="votre.portaloperaciones.consultassku" additivity="false">
+		<level value="ERROR"/> 
+		<appender-ref ref="TransaccionesAppender"/>
+		<appender-ref ref="ConsultasSkuAppender"/>
+	</logger>
+	<logger name="votre.portaloperaciones.despachocatalogo" additivity="false">
+		<level value="ERROR"/> 
+		<appender-ref ref="TransaccionesAppender"/>
+		<appender-ref ref="DespachosAppender"/>
+	</logger>
+	<logger name="votre.portaloperaciones.embarqueinternacional" additivity="false">
+		<level value="ERROR"/> 
+		<appender-ref ref="TransaccionesAppender"/>
+		<appender-ref ref="EmbarquesAppender"/>
+	</logger>
+	<logger name="votre.portaloperaciones.servicios" additivity="false">
+		<level value="ERROR"/> 
+		<appender-ref ref="TransaccionesAppender"/>
+		<appender-ref ref="ServiciosAppender"/>
+	</logger>
+	<logger name="votre.portaloperaciones.solicitudcatalogo" additivity="false">
+		<level value="ERROR"/> 
+		<appender-ref ref="TransaccionesAppender"/>
+		<appender-ref ref="SolicitudAppender"/>
+	</logger>
+	<logger name="votre.portaloperaciones.suscripcioncatalogo" additivity="false">
+		<level value="ERROR"/> 
+		<appender-ref ref="TransaccionesAppender"/>
+		<appender-ref ref="SuscripcionesAppender"/>
+	</logger>
+	<logger name="votre.portaloperaciones.activaciondemandas" additivity="false">
+		<level value="ERROR"/> 
+		<appender-ref ref="TransaccionesAppender"/>
+		<appender-ref ref="ActivacionesDemandaAppender"/>
+	</logger>
+	<logger name="votre.portaloperaciones" additivity="true">
+		<level value="ERROR"/> 
+		<appender-ref ref="TransaccionesAppender"/>
+		<appender-ref ref="GeneralAppender"/>
+	</logger>
+	<logger name="info" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="TransaccionesAppender"/> 
+	</logger>
+	<root>
+		<level value="ERROR" />
+		<appender-ref ref="ConsoleAppender" />
+		<appender-ref ref="GeneralAppender" />
+	</root>
+</log4j:configuration>
+
+
+

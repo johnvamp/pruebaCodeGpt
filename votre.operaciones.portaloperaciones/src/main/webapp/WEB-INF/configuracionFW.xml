@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuracion>
+	<item tipo="query" nombre="queryConfiguracion" ruta="/WEB-INF/sql/framework/consultarConfiguraciones.sql"/>
+	<item tipo="query" nombre="insertConfiguracion" ruta="/WEB-INF/sql/framework/insertConfiguracion.sql"/>
+	<item tipo="query" nombre="updateConfiguracion" ruta="/WEB-INF/sql/framework/updateConfiguracion.sql"/>
+	<item tipo="query" nombre="deleteConfiguracion" ruta="/WEB-INF/sql/framework/deleteConfiguracion.sql"/>
+	<item tipo="query" nombre="queryMensaje" ruta="/WEB-INF/sql/framework/consultarMensaje.sql"/>	
+	<item tipo="query" nombre="queryMensajes" ruta="/WEB-INF/sql/framework/selectAllMensajes.sql"/>
+	<item tipo="query" nombre="insertMensaje" ruta="/WEB-INF/sql/framework/insertMensaje.sql"/>
+	<item tipo="query" nombre="updateMensaje" ruta="/WEB-INF/sql/framework/updateMensaje.sql"/>
+	<item tipo="query" nombre="deleteMensaje" ruta="/WEB-INF/sql/framework/deleteMensaje.sql"/>
+	
+	<!-- Parámetros de configuración para el agente de ejecución de tareas -->
+	<item tipo="parametro" nombre="claseImplementacionColaAgente" valor="votre.portaloperaciones.colas.beans.ColaTareas" descripcion="Clase que implementa la lógica de persistencia en la que el agente almacena las tareas programadas."/>
+	<item tipo="parametro" nombre="intervaloTiempoAgenteColector" valor="12" descripcion="Intervalo de tiempo antes de que el agente recolector de tareas revise cuales deberían salir de la cola."/>
+	<item tipo="parametro" nombre="unidadTiempoAgenteColector" valor="H" descripcion="Unidad de tiempo en la que se encuentra el parámetro 'tiempoIntervaloAgenteColector' los posibles valores son M=Minuto o H=Horas."/>
+	<item tipo="parametro" nombre="tiempoRemocionTareas" valor="48" descripcion="Tiempo que debe transcurrir para que una tarea sea considerada como desechable en la cola del agente de tareas."/>
+	<item tipo="parametro" nombre="unidadTiempoRemocionTareas" valor="H" descripcion="Unidad de tiempo en la que se encuentra el parámetro 'tiempoRemocionTareas' los posibles valores son M=Minuto o H=Horas."/>
+	<item tipo="parametro" nombre="permiteHistoricoAgenteTareas" valor="N" descripcion="Indica si una tarea que se retira de la cola del agente y sea persistente ésta se elimina también de la base de datos o simplemente se marca como no pendiente y se conserva como historia."/>
+	<item tipo="parametro" nombre="permitePersistenciaTareasBD" valor="N" descripcion="Indica si el agente de ejecución permite persistencia de tareas a base de datos."/>
+
+	<!-- Configuración para soporte de internacionalización de mensajes de usuario -->	
+	<item tipo="parametro" nombre="idiomaPorDefecto" valor="es_CO" descripcion="Indica el idioma de los mensajes de usuario por defecto para la aplicación. Para este caso es significa español y CO el pais Colombia."/>
+	<item tipo="parametro" nombre="idiomasDisponibles" valor="es_CO=Español,en_US=Inglés" descripcion="Lista todos los idiomas disponibles en la aplicación."/>	
+	
+	<!-- Parámetros de configuración general -->
+	<item tipo="parametro" nombre="tipoRecursosBDFramework" valor="SQL" descripcion="Indica si el framework debe consultar la fuente de datos por medio de procedimientos almacenados (SP) o por medio de sentencias sql (SQL)"/>
+	<item tipo="parametro" nombre="rutaConfiguracionServicios" valor="/WEB-INF/localizacionServicios.xml"/>
+	<item tipo="parametro" nombre="rutaConfiguracionRecursos" valor="/WEB-INF/recurso.xml"/>
+ 	<!-- LOCAL -->
+<!--  	<item tipo="parametro" nombre="jndi" valor="jdbc/DB2"/> -->
+<!--  	<item tipo="parametro" nombre="jndiUSA" valor="jdbc/ClubUSA"/> -->
+ 	<!-- TEST -->
+<!--  	<item tipo="parametro" nombre="jndi" valor="jdbc/Testing"/> -->
+<!--  	<item tipo="parametro" nombre="jndiUSA" valor="jdbc/TestingMN"/> -->
+
+ 	<!-- PDN -->
+  	<item tipo="parametro" nombre="jndi" valor="jdbc/portaloperaciones"/>
+ 	<item tipo="parametro" nombre="jndiUSA" valor="jdbc/ClubUSA"/>
+
+	<item tipo="parametro" nombre="habilitarCacheParametrosBD" valor="S" descripcion="Indica al framework si esta habilitada o no la consulta de parámetros de configuración a base de datos."/>
+	<item tipo="parametro" nombre="habilitarCacheMensajesBD" valor="S" descripcion="Indica al framework si esta habilitada o no la consulta de mensajes de usuario a base de datos."/>
+	<item tipo="parametro" nombre="semillaEncripcion" valor="personalsoftFW"/>
+	<item tipo="parametro" nombre="paginaError" valor="jsp/error.jsp"/>
+
+	<item tipo="servicio" nombre="adminFW" usuario="jmbuiles" clave="12345" descripcion="Usuario y clave contra el cual se autenticará un usuario cuando quiere utilizar los servicios de la herramienta de administración gráfica del framework."/>
+
+</configuracion>
+

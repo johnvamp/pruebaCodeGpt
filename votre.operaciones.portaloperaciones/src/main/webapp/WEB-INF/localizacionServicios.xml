@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app name="PortalOperaciones">
+	
+	<servicio nombre="logueoFacade" localizacion="votre.portaloperaciones.logueo.facade.LogueoFacade" tipo="POJO"/>
+	<servicio nombre="catalogoFacade" localizacion="votre.portaloperaciones.solicitudcatalogo.catalogo.facade.CatalogoFacade" tipo="POJO"/>
+	<servicio nombre="compradoraFacade" localizacion="votre.portaloperaciones.solicitudcatalogo.compradora.facade.CompradoraFacade" tipo="POJO"/>
+	<servicio nombre="referenciaFacade" localizacion="votre.portaloperaciones.solicitudcatalogo.referencia.facade.ReferenciaFacade" tipo="POJO" />
+	<servicio nombre="labelsFacade" localizacion="votre.portaloperaciones.despachocatalogo.labels.facade.LabelsFacade" tipo="POJO" />
+	<servicio nombre="reportesFacade" localizacion="votre.portaloperaciones.despachocatalogo.reportes.facade.ReportesFacade" tipo="POJO" />
+	<servicio nombre="embarqueFacade" localizacion="votre.portaloperaciones.embarqueinternacional.embarque.facade.EmbarqueFacade" tipo="POJO" />
+	<servicio nombre="transportadorFacade" localizacion="votre.portaloperaciones.embarqueinternacional.transportador.facade.TransportadorFacade" tipo="POJO" />
+	<servicio nombre="entregaFacade" localizacion="votre.portaloperaciones.embarqueinternacional.entrega.facade.EntregaFacade" tipo="POJO" />
+	<servicio nombre="camionFacade" localizacion="votre.portaloperaciones.embarqueinternacional.camion.facade.CamionFacade" tipo="POJO" />
+	<servicio nombre="reimprimirFacade" localizacion="votre.portaloperaciones.embarqueinternacional.reimprimir.facade.ReimprimirFacade" tipo="POJO" />
+	<servicio nombre="causalFacade" localizacion="votre.portaloperaciones.embarqueinternacional.causales.facade.CausalFacade" tipo="POJO" />
+	<servicio nombre="bodegaFacade" localizacion="votre.portaloperaciones.consultasku.bodegas.facade.BodegaFacade" tipo="POJO" />
+	<servicio nombre="consultasFacade" localizacion="votre.portaloperaciones.consultasku.consultas.facade.ConsultasFacade" tipo="POJO" />
+	<servicio nombre="suscripcionesFacade" localizacion="votre.portaloperaciones.suscripcioncatalogo.facade.SuscripcionesFacade" tipo="POJO" />
+	<servicio nombre="flujoWms" localizacion="votre.portaloperaciones.flujowms.facade.FlujoWmsFacade" tipo="POJO" />
+	<servicio nombre="Transportistas" localizacion="votre.portaloperaciones.transportistas.facade.TransportistasFacade" tipo="POJO" />	
+	<servicio nombre="IndicadorPedidos" localizacion="votre.portaloperaciones.indicadordepedidos.facade.IndicadorPedidosFacade" tipo="POJO" />
+	<servicio nombre="activacionDemandasFacade" localizacion="votre.portaloperaciones.activaciondemandas.facade.ActivacionDemandasFacade" tipo="POJO" />
+	<servicio nombre="reprocesosFacade" localizacion="votre.portaloperaciones.reprocesos.facade.ReprocesosFacade" tipo="POJO"></servicio>
+	<servicio nombre="embarqueCatalogoFacade" localizacion="votre.portaloperaciones.despachocatalogo.embarquecatalogo.facade.EmbarqueCatalogoFacade" tipo="POJO"></servicio>
+	<servicio nombre="Pedidos" localizacion="votre.portaloperaciones.pedidos.facade.PedidosFacade" tipo="POJO" />
+	
+	
+	<servicio nombre="EmailBusiness" localizacion="http://leonisavirtual.leonisa.com/GenericosVotre/services/EmailBusiness" tipo="WS"/>
+	<servicio nombre="EmbarqueBusiness" localizacion="http://leonisavirtual.leonisa.com/ventaporcatalogo/services/EmbarqueBusiness" tipo="WS"/>
+	<servicio nombre="ModuloSeguridad" localizacion="https://sc.leonisa.com/Aplicativos_Informaticos/SC/Seguridad33/seguridad.asmx" tipo="WS"/>
+
+</app>

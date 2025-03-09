@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>:: Portal Operaciones :: Leonisa S.A. ::</title>
+
+<!--[if lt IE 7]>
+<script defer type="text/javascript" src="../js/png.js"></script>
+<![endif]-->
+
+
+
+<style type="text/css">
+<!--
+body {
+	background-attachment: fixed;
+	background-image: url(imagenes/bg_pestana.jpg);
+	background-repeat:  repeat-x;
+	background-position: left top;
+	margin-top: 15;
+	margin-right: 0px;
+	margin-bottom: 0;
+	margin-left: 0;
+}
+.boton {
+	font-family: Verdana;
+	color: #5B86A2;
+	background-color: #FFF;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	height: 45px;
+	width: 16px;
+	font-size: 12px;
+	background-image: url(imagenes/pestana.jpg);
+	background-repeat: no-repeat;
+	font-weight: bold;
+}
+-->
+</style>
+
+<script LANGUAGE="JavaScript1.2">
+	function MostrarMenu(){
+		var botonMenu = document.getElementById("btnMenu");
+		if (botonMenu.value == "«") {
+			botonMenu.value = "»";
+			// parent.frameIzq.cols = "0,*";
+			parent.document.getElementsByTagName("frameset")[1].cols = "0,*";
+		}
+		else {
+			botonMenu.value = "«";
+			// parent.frameIzq.cols = "189,*";
+			parent.document.getElementsByTagName("frameset")[1].cols = "189,*";
+		}
+	}
+</script>
+
+
+
+
+</head>
+
+<body>
+<input type="button" value="«" name="btnMenu" id="btnMenu" onclick="MostrarMenu()" class="boton" />
+
+</body>
+</html>

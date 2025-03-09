@@ -1,0 +1,30 @@
+.title-radius{
+	border-radius: 5px 5px 0 0;
+	background: #eeeeee;
+	text-align:center;
+	height: 40px;
+	padding-top:15px;
+}
+
+.body-find{
+	border: 1px #eee solid;
+	text-align: center;
+    padding-top: 20px;
+    height: 40px;
+}
+
+.button-transportista{
+	text-decoration: none !important;
+	border-radius: 5px;
+	background-color: #6895BF;
+	color: #fff;
+	padding: 5px;
+}
+
+.table-transportistas > tr > td{
+	padding: 10px;
+}
+
+.button-transportista-disabled {
+	display: none;
+}
